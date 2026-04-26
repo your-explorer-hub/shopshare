@@ -3,91 +3,194 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ShopShare — Legal</title>
+  <meta name="description" content="ShopShare — shared family shopping lists, in real time." />
+  <title>ShopShare — Collaborative Shopping Lists</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f7f5ff;
-      color: #1a1a2e;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    :root {
+      --purple: #6200EE; --purple-mid: #7C4DFF; --purple-light: #9C27B0;
+      --teal: #009688; --surface: #F7F5FF; --card: #ffffff;
+      --text-primary: #1a1a2e; --text-muted: #5a5a7a;
+      --border: rgba(98,0,238,0.08);
+      --shadow-sm: 0 2px 12px rgba(98,0,238,0.08);
+      --shadow-md: 0 8px 30px rgba(98,0,238,0.14);
+      --radius: 18px;
     }
-    header {
-      background: linear-gradient(135deg, #7C4DFF, #9C27B0);
-      color: white;
-      padding: 40px 24px 32px;
-      text-align: center;
-    }
-    header .logo { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; }
-    header .logo span { opacity: 0.75; font-weight: 400; font-size: 1rem; display: block; margin-top: 4px; }
-    main {
-      max-width: 640px;
-      margin: 48px auto;
-      padding: 0 24px;
-      flex: 1;
-    }
-    h2 { font-size: 1.1rem; color: #5e35b1; margin-bottom: 24px; font-weight: 600; }
-    .card-grid { display: grid; gap: 16px; }
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 28px 24px;
-      text-decoration: none;
-      color: inherit;
-      border: 1.5px solid #ede7f6;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      transition: box-shadow 0.15s, transform 0.15s;
-    }
-    .card:hover { box-shadow: 0 6px 24px rgba(124,77,255,0.12); transform: translateY(-2px); }
-    .card .icon {
-      font-size: 2rem;
-      width: 52px; height: 52px;
-      background: #f3e5f5;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
-    .card p { font-size: 0.875rem; color: #666; line-height: 1.5; }
-    footer {
-      text-align: center;
-      padding: 24px;
-      font-size: 0.8rem;
-      color: #999;
-    }
-    footer a { color: #7C4DFF; text-decoration: none; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--surface); color: var(--text-primary); min-height: 100vh; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg,#6200EE 0%,#9C27B0 55%,#009688 100%); padding: 72px 24px 104px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content:''; position:absolute; top:-100px; right:-100px; width:360px; height:360px; background:rgba(255,255,255,0.05); border-radius:50%; pointer-events:none; }
+    .hero::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:68px; background:var(--surface); clip-path:ellipse(56% 100% at 50% 100%); }
+    .hero-icon { width:96px; height:96px; background:rgba(255,255,255,0.16); border-radius:28px; display:inline-flex; align-items:center; justify-content:center; font-size:50px; margin-bottom:24px; box-shadow:0 12px 40px rgba(0,0,0,0.24); backdrop-filter:blur(8px); border:1.5px solid rgba(255,255,255,0.24); }
+    .hero h1 { font-size:clamp(2.6rem,7vw,3.8rem); font-weight:900; color:#fff; letter-spacing:0.5px; margin-bottom:16px; }
+    .hero .tagline { font-size:clamp(1rem,2.5vw,1.2rem); color:rgba(255,255,255,0.88); max-width:480px; margin:0 auto 40px; line-height:1.7; }
+    .hero-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:8px; border-radius:50px; padding:12px 26px; font-size:0.92rem; font-weight:700; text-decoration:none; transition:transform 0.15s,box-shadow 0.15s; white-space:nowrap; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-white { background:#fff; color:var(--purple); box-shadow:0 4px 20px rgba(0,0,0,0.18); }
+    .btn-white:hover { box-shadow:0 8px 32px rgba(0,0,0,0.24); }
+    .btn-ghost { background:rgba(255,255,255,0.14); color:#fff; border:1.5px solid rgba(255,255,255,0.32); backdrop-filter:blur(6px); }
+    .btn-ghost:hover { background:rgba(255,255,255,0.24); }
+
+    /* SECTIONS */
+    .section { max-width:1020px; margin:0 auto; padding:60px 24px 8px; }
+    .section-label { display:flex; align-items:center; gap:10px; font-size:0.78rem; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:var(--purple); margin-bottom:28px; }
+    .section-label::after { content:''; flex:1; height:1.5px; background:linear-gradient(90deg,var(--purple) 0%,transparent 100%); opacity:0.14; border-radius:2px; }
+
+    /* FEATURE GRID */
+    .feature-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(218px,1fr)); gap:18px; margin-bottom:52px; }
+    .feat-card { background:var(--card); border-radius:var(--radius); padding:28px 22px 24px; border:1px solid var(--border); box-shadow:var(--shadow-sm); transition:transform 0.18s,box-shadow 0.18s; }
+    .feat-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+    .feat-icon { width:54px; height:54px; border-radius:15px; display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:16px; }
+    .feat-card h3 { font-size:1rem; font-weight:700; margin-bottom:8px; color:var(--text-primary); }
+    .feat-card p { font-size:0.875rem; color:var(--text-muted); line-height:1.65; }
+    .bg-purple{background:#F0E6FF;} .bg-teal{background:#E0F5F3;} .bg-blue{background:#E3EEFF;}
+    .bg-green{background:#E6F8EE;} .bg-orange{background:#FFF2E2;} .bg-pink{background:#FCE8EF;}
+    .bg-indigo{background:#EAECFB;} .bg-amber{background:#FFF9DC;}
+
+    /* RESOURCE GRID */
+    .resource-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:18px; margin-bottom:64px; }
+    .res-card { background:var(--card); border-radius:var(--radius); padding:26px 24px 22px; border:1px solid var(--border); box-shadow:var(--shadow-sm); text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:transform 0.18s,box-shadow 0.18s; }
+    .res-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+    .res-header { display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+    .res-icon { width:50px; height:50px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:25px; flex-shrink:0; }
+    .res-card h3 { font-size:1.02rem; font-weight:700; color:var(--text-primary); }
+    .res-card p { font-size:0.875rem; color:var(--text-muted); line-height:1.65; flex:1; }
+    .res-cta { display:inline-flex; align-items:center; gap:5px; margin-top:18px; font-size:0.82rem; font-weight:700; border-radius:50px; padding:5px 15px; align-self:flex-start; transition:opacity 0.15s; }
+    .res-cta:hover { opacity:0.78; }
+    .rc-indigo .res-icon{background:#EAECFB;} .rc-indigo .res-cta{background:#EAECFB;color:#283593;}
+    .rc-teal   .res-icon{background:#E0F5F3;} .rc-teal   .res-cta{background:#E0F5F3;color:#00695C;}
+    .rc-purple .res-icon{background:#F0E6FF;} .rc-purple .res-cta{background:#F0E6FF;color:var(--purple);}
+
+    /* FOOTER */
+    footer { background:var(--card); border-top:1px solid var(--border); text-align:center; padding:40px 24px 48px; color:var(--text-muted); font-size:0.84rem; line-height:2.1; }
+    .footer-brand { font-size:1.35rem; font-weight:900; color:var(--purple); letter-spacing:0.3px; margin-bottom:4px; }
+    footer a { color:var(--purple); text-decoration:none; font-weight:600; }
+    footer a:hover { text-decoration:underline; }
+    .footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin:8px 0; }
+
+    @media(max-width:500px){ .feature-grid,.resource-grid{grid-template-columns:1fr;} }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">🛒 ShopShare <span>Collaborative Shopping Lists</span></div>
-  </header>
-  <main>
-    <h2>Legal Documents</h2>
-    <div class="card-grid">
-      <a class="card" href="privacy.html">
-        <div class="icon">🔒</div>
-        <div>
-          <h3>Privacy Policy</h3>
-          <p>How we collect, use, and protect your personal data.</p>
-        </div>
-      </a>
-      <a class="card" href="terms.html">
-        <div class="icon">📄</div>
-        <div>
-          <h3>Terms of Service</h3>
-          <p>Rules and guidelines for using ShopShare.</p>
-        </div>
-      </a>
+
+  <header class="hero">
+    <div class="hero-icon">🛒</div>
+    <h1>ShopShare</h1>
+    <p class="tagline">Shop together, simply. Real-time collaborative shopping lists for families &amp; teams.</p>
+    <div class="hero-actions">
+      <a class="btn btn-white" href="https://shopshare-f0719.web.app" target="_blank">🌐 Open Web App</a>
+      <a class="btn btn-ghost" href="user-manual.html">📖 User Manual</a>
+      <a class="btn btn-ghost" href="https://github.com/your-explorer-hub/shopshare" target="_blank">🐙 GitHub</a>
     </div>
+  </header>
+
+  <main>
+
+    <section class="section">
+      <div class="section-label">✨ Key Features</div>
+      <div class="feature-grid">
+
+        <div class="feat-card">
+          <div class="feat-icon bg-purple">🔄</div>
+          <h3>Real-Time Sync</h3>
+          <p>Changes appear instantly on every device via Firebase Firestore — no refresh ever needed.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon bg-teal">👨‍👩‍👧‍👦</div>
+          <h3>Shared Lists</h3>
+          <p>Invite family or housemates with a single link. Everyone edits the same list simultaneously.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon bg-blue">🎙️</div>
+          <h3>Voice Input</h3>
+          <p>Add items hands-free — just tap the mic and speak. No typing required at all.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon bg-green">🏷️</div>
+          <h3>Smart Categories</h3>
+          <p>Organise by Produce, Dairy, Bakery &amp; more for faster in-store navigation.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon bg-orange">🔔</div>
+          <h3>Smart Notifications</h3>
+          <p>Get notified when members add or check off items. Mute for 8 h, 24 h, or any custom period.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon bg-pink">🎨</div>
+          <h3>Beautiful Themes</h3>
+          <p>Choose System default, calming Soothing green, or bold Vibrant Dark — your call.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon bg-indigo">📱</div>
+          <h3>Works Everywhere</h3>
+          <p>Android app &amp; Progressive Web App — use it on any phone, tablet, or desktop browser.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon bg-amber">💾</div>
+          <h3>Offline Ready</h3>
+          <p>Local SQLite cache keeps your list accessible offline. Syncs automatically when reconnected.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">📚 Resources</div>
+      <div class="resource-grid">
+
+        <a class="res-card rc-indigo" href="user-manual.html">
+          <div class="res-header">
+            <div class="res-icon">📖</div>
+            <h3>User Manual</h3>
+          </div>
+          <p>Step-by-step guides for getting started, managing lists, inviting members, and using every feature.</p>
+          <span class="res-cta">Read manual →</span>
+        </a>
+
+        <a class="res-card rc-teal" href="privacy.html">
+          <div class="res-header">
+            <div class="res-icon">🔒</div>
+            <h3>Privacy Policy</h3>
+          </div>
+          <p>How we collect, use, and protect your personal data. Your privacy is our priority.</p>
+          <span class="res-cta">Read policy →</span>
+        </a>
+
+        <a class="res-card rc-purple" href="terms.html">
+          <div class="res-header">
+            <div class="res-icon">📋</div>
+            <h3>Terms of Service</h3>
+          </div>
+          <p>The rules and conditions governing your use of ShopShare. Clear, fair, and easy to read.</p>
+          <span class="res-cta">Read terms →</span>
+        </a>
+
+      </div>
+    </section>
+
   </main>
+
   <footer>
+    <div class="footer-brand">🛒 ShopShare</div>
+    <div class="footer-links">
+      <a href="user-manual.html">User Manual</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="https://github.com/your-explorer-hub/shopshare" target="_blank">GitHub</a>
+    </div>
     Questions? <a href="mailto:ss.yourexplorerhub@gmail.com">ss.yourexplorerhub@gmail.com</a><br/>
     &copy; 2026 ShopShare. All rights reserved.
   </footer>
+
 </body>
 </html>
