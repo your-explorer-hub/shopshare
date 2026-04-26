@@ -25,14 +25,7 @@
     .hero::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:68px; background:var(--surface); clip-path:ellipse(56% 100% at 50% 100%); }
     .hero-icon { width:96px; height:96px; background:rgba(255,255,255,0.16); border-radius:28px; display:inline-flex; align-items:center; justify-content:center; font-size:50px; margin-bottom:24px; box-shadow:0 12px 40px rgba(0,0,0,0.24); backdrop-filter:blur(8px); border:1.5px solid rgba(255,255,255,0.24); }
     .hero h1 { font-size:clamp(2.6rem,7vw,3.8rem); font-weight:900; color:#fff; letter-spacing:0.5px; margin-bottom:16px; }
-    .hero .tagline { font-size:clamp(1rem,2.5vw,1.2rem); color:rgba(255,255,255,0.88); max-width:480px; margin:0 auto 40px; line-height:1.7; }
-    .hero-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-    .btn { display:inline-flex; align-items:center; gap:8px; border-radius:50px; padding:12px 26px; font-size:0.92rem; font-weight:700; text-decoration:none; transition:transform 0.15s,box-shadow 0.15s; white-space:nowrap; }
-    .btn:hover { transform:translateY(-2px); }
-    .btn-white { background:#fff; color:var(--purple); box-shadow:0 4px 20px rgba(0,0,0,0.18); }
-    .btn-white:hover { box-shadow:0 8px 32px rgba(0,0,0,0.24); }
-    .btn-ghost { background:rgba(255,255,255,0.14); color:#fff; border:1.5px solid rgba(255,255,255,0.32); backdrop-filter:blur(6px); }
-    .btn-ghost:hover { background:rgba(255,255,255,0.24); }
+    .hero .tagline { font-size:clamp(1rem,2.5vw,1.2rem); color:rgba(255,255,255,0.88); max-width:480px; margin:0 auto; line-height:1.7; }
 
     /* SECTIONS */
     .section { max-width:1020px; margin:0 auto; padding:60px 24px 8px; }
@@ -80,11 +73,6 @@
     <div class="hero-icon">🛒</div>
     <h1>ShopShare</h1>
     <p class="tagline">Shop together, simply. Real-time collaborative shopping lists for families &amp; teams.</p>
-    <div class="hero-actions">
-      <a class="btn btn-white" href="https://shopshare-f0719.web.app" target="_blank">🌐 Open Web App</a>
-      <a class="btn btn-ghost" href="user-manual.html">📖 User Manual</a>
-      <a class="btn btn-ghost" href="https://github.com/your-explorer-hub/shopshare" target="_blank">🐙 GitHub</a>
-    </div>
   </header>
 
   <main>
@@ -96,7 +84,7 @@
         <div class="feat-card">
           <div class="feat-icon bg-purple">🔄</div>
           <h3>Real-Time Sync</h3>
-          <p>Changes appear instantly on every device via Firebase Firestore — no refresh ever needed.</p>
+          <p>Changes appear instantly on every device — no refresh ever needed.</p>
         </div>
 
         <div class="feat-card">
@@ -138,7 +126,7 @@
         <div class="feat-card">
           <div class="feat-icon bg-amber">💾</div>
           <h3>Offline Ready</h3>
-          <p>Local SQLite cache keeps your list accessible offline. Syncs automatically when reconnected.</p>
+          <p>Your list stays accessible even without an internet connection. Syncs automatically when reconnected.</p>
         </div>
 
       </div>
@@ -186,7 +174,6 @@
       <a href="user-manual.html">User Manual</a>
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
-      <a href="https://github.com/your-explorer-hub/shopshare" target="_blank">GitHub</a>
     </div>
     Questions? <a href="mailto:ss.yourexplorerhub@gmail.com">ss.yourexplorerhub@gmail.com</a><br/>
     &copy; 2026 ShopShare. All rights reserved.
