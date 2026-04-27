@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ShopShare &ndash; User Manual</title>
-<meta name="description" content="Complete user manual for ShopShare."/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ShopShare – User Manual</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--p:#6750A4;--pl:#EDE7F6;--pd:#4527A0;--t:#00897B;--tl:#E0F2F1;--a:#FFAB40;--r:#E53935;--g:#43A047;--sw:270px;--hh:60px;--ra:10px;--sh:0 2px 12px rgba(0,0,0,.09);--b:#E0E0E0;--tx:#1A1A2E;--tm:#6B6B80;--bg:#F8F7FC;--sf:#fff;--fn:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif}
+:root{--p:#6750A4;--pl:#EDE7F6;--pd:#4527A0;--t:#00897B;--tl:#E0F2F1;--a:#FFAB40;--r:#E53935;--g:#43A047;--sw:270px;--hh:60px;--ra:10px;--sh:0 2px 12px rgba(0,0,0,.09);--b:#E0E0E0;--tx:#1A1A2E;--tm:#6B6B80;--bg:#F8F7FC;--sf:#fff}
 html{scroll-behavior:smooth}
-body{font-family:var(--fn);background:var(--bg);color:var(--tx);line-height:1.65;font-size:15px}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--tx);line-height:1.65;font-size:15px}
 header{position:fixed;top:0;left:0;right:0;height:var(--hh);background:var(--p);color:#fff;display:flex;align-items:center;gap:14px;padding:0 20px;z-index:200;box-shadow:0 2px 8px rgba(103,80,164,.3)}
-.li{width:38px;height:38px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.15)}
-header h1{font-size:20px;font-weight:800;letter-spacing:.5px}
-header .sub{font-size:12px;opacity:.8;margin-top:1px}
+.li{width:38px;height:38px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+header h1{font-size:20px;font-weight:800}
+header .sub{font-size:12px;opacity:.8}
 .vb{margin-left:auto;background:rgba(255,255,255,.2);border-radius:20px;padding:3px 12px;font-size:11px;font-weight:600}
 .hb{display:none;background:none;border:none;cursor:pointer;color:#fff;font-size:24px}
 .lay{display:flex;padding-top:var(--hh);min-height:100vh}
@@ -49,16 +48,16 @@ ol.stp li strong{display:block;margin-bottom:3px}
 .note{background:var(--pl);border-left:4px solid var(--p)}.note em{color:var(--p);font-size:18px;flex-shrink:0;font-style:normal}
 .warn{background:#FFF3E0;border-left:4px solid var(--a)}.warn em{color:#E65100;font-size:18px;flex-shrink:0;font-style:normal}
 .inf{background:var(--tl);border-left:4px solid var(--t)}.inf em{color:var(--t);font-size:18px;flex-shrink:0;font-style:normal}
-.fg{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px;margin:20px 0}
+.fg{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px;margin:20px 0}
 .fc{background:var(--sf);border:1px solid var(--b);border-radius:var(--ra);padding:16px;box-shadow:var(--sh);text-align:center}
-.fi{font-size:28px;margin-bottom:8px}.ft{font-weight:700;font-size:13px;margin-bottom:4px}.fd{font-size:12px;color:var(--tm)}
+.fi{font-size:26px;margin-bottom:8px}.ft{font-weight:700;font-size:13px;margin-bottom:4px}.fd{font-size:12px;color:var(--tm)}
 table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
 th{background:var(--p);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
 td{padding:9px 14px;border-bottom:1px solid var(--b);vertical-align:top}
 tr:nth-child(even) td{background:#FAFAFA}
 .bx{display:inline-flex;align-items:center;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700}
 .bf{background:#EDE7F6;color:#5C5C8A}.bfa{background:#E3F2FD;color:#1565C0}.bgr{background:#E8F5E9;color:#2E7D32}
-.bg{background:#E8F5E9;color:var(--g)}.br{background:#FFEBEE;color:var(--r)}.bt{background:var(--tl);color:var(--t)}.bp{background:var(--pl);color:var(--p)}.ba{background:#FFF8E1;color:#E65100}
+.bg{background:#E8F5E9;color:var(--g)}.bt{background:var(--tl);color:var(--t)}.ba{background:#FFF8E1;color:#E65100}
 .cat{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
 .cg{background:#E8F5E9;color:#43A047;border:1px solid #A5D6A7}.co{background:#E3F2FD;color:#1E88E5;border:1px solid #90CAF9}
 .cp{background:#FBE9E7;color:#FF7043;border:1px solid #FFAB91}.cw{background:#F3E5F5;color:#8E24AA;border:1px solid #CE93D8}
@@ -80,81 +79,535 @@ ul.bul li{margin-bottom:6px;font-size:14px}
 .pc{border-radius:12px;padding:20px;text-align:center}
 .pc .pn{font-size:18px;font-weight:800;margin:8px 0 4px}
 .pc .pb{display:inline-block;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:12px}
-.pc ul{list-style:none;font-size:13px;line-height:2.2;text-align:left}
-.pc ul li::before{content:"&#10003; ";color:var(--g);font-weight:700}
+.pc ul{list-style:none;font-size:13px;line-height:2.1;text-align:left}
+.pc ul li::before{content:"✓ ";color:var(--g);font-weight:700}
 .pf{background:#EDE7F6;border:2px solid #9575CD}.pfa{background:#E3F2FD;border:2px solid #42A5F5}.pgr{background:#E8F5E9;border:2px solid #66BB6A}
 .ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}.ov.on{display:block}
 @media(max-width:768px){nav{transform:translateX(-100%)}nav.on{transform:translateX(0)}main{margin-left:0}.pg{padding:24px 20px}.hb{display:block}.vb{display:none}.tc,.tc3{grid-template-columns:1fr}.fg{grid-template-columns:1fr 1fr}}
 </style>
-</head><body>
-<header><div class="li">🛒</div><div><h1>ShopShare</h1><div class="sub">User Manual</div></div><div class="vb">v1.0.0</div><button class="hb" onclick="ts()">☰</button></header>
+</head>
+<body>
+<header><div class="li">&#x1F6D2;</div><div><h1>ShopShare</h1><div class="sub">User Manual</div></div><div class="vb">v1.0.0</div><button class="hb" onclick="ts()">&#9776;</button></header>
 <div class="ov" id="ov" onclick="ts()"></div>
 <div class="lay"><nav id="sb">
 <div class="ng">Overview</div>
-<a class="ni on" onclick="sp('gs')"><span class="nii">🏠</span>Getting Started</a>
+<a class="ni on" onclick="sp('gs')"><span class="nii">&#x1F3E0;</span>Getting Started</a>
 <div class="ng">Shopping Lists</div>
-<a class="ni" onclick="sp('lists')"><span class="nii">📋</span>My Lists</a>
+<a class="ni" onclick="sp('lists')"><span class="nii">&#x1F4CB;</span>My Lists</a>
 <div class="ng">Items</div>
 <a class="ni" onclick="sp('add')"><span class="nii">+</span>Add Item</a>
-<a class="ns" onclick="sp('voice')">🎤 Add by Voice</a>
-<a class="ni" onclick="sp('edit')"><span class="nii">✏</span>Edit Item</a>
-<a class="ni" onclick="sp('move')"><span class="nii">📦</span>Move Item</a>
-<a class="ni" onclick="sp('del')"><span class="nii">🗑</span>Delete Item</a>
+<a class="ns" onclick="sp('voice')">&#x1F3A4; Add by Voice</a>
+<a class="ni" onclick="sp('edit')"><span class="nii">&#x270F;</span>Edit Item</a>
+<a class="ni" onclick="sp('move')"><span class="nii">&#x1F4E6;</span>Move Item</a>
+<a class="ni" onclick="sp('del')"><span class="nii">&#x1F5D1;</span>Delete Item</a>
 <div class="ng">Browse</div>
-<a class="ni" onclick="sp('cat')"><span class="nii">🏷</span>Categories &amp; Filter</a>
-<a class="ni" onclick="sp('srch')"><span class="nii">🔍</span>Search</a>
-<a class="ni" onclick="sp('today')"><span class="nii">📅</span>Today's List</a>
-<a class="ni" onclick="sp('done')"><span class="nii">✅</span>Completed Items</a>
+<a class="ni" onclick="sp('cat')"><span class="nii">&#x1F3F7;</span>Categories &amp; Filter</a>
+<a class="ni" onclick="sp('srch')"><span class="nii">&#x1F50D;</span>Search</a>
+<a class="ni" onclick="sp('today')"><span class="nii">&#x1F4C5;</span>Today's List</a>
+<a class="ni" onclick="sp('done')"><span class="nii">&#x2705;</span>Completed Items</a>
 <div class="ng">Sharing</div>
-<a class="ni" onclick="sp('create')"><span class="nii">👥</span>Create Shared List</a>
-<a class="ni" onclick="sp('invite')"><span class="nii">📨</span>Invite Members</a>
-<a class="ni" onclick="sp('join')"><span class="nii">🔗</span>Join a List</a>
-<a class="ni" onclick="sp('members')"><span class="nii">👬</span>Manage Members</a>
+<a class="ni" onclick="sp('create')"><span class="nii">&#x1F465;</span>Create Shared List</a>
+<a class="ni" onclick="sp('invite')"><span class="nii">&#x1F4E8;</span>Invite Members</a>
+<a class="ni" onclick="sp('join')"><span class="nii">&#x1F517;</span>Join a List</a>
+<a class="ni" onclick="sp('members')"><span class="nii">&#x1F46C;</span>Manage Members</a>
 <div class="ng">Settings</div>
-<a class="ni" onclick="sp('themes')"><span class="nii">🎨</span>Themes</a>
-<a class="ni" onclick="sp('notif')"><span class="nii">🔔</span>Notifications</a>
-<a class="ni" onclick="sp('profile')"><span class="nii">👤</span>Profile</a>
+<a class="ni" onclick="sp('themes')"><span class="nii">&#x1F3A8;</span>Themes</a>
+<a class="ni" onclick="sp('notif')"><span class="nii">&#x1F514;</span>Notifications</a>
+<a class="ni" onclick="sp('profile')"><span class="nii">&#x1F464;</span>Profile</a>
 <div class="ng">Account</div>
-<a class="ni" onclick="sp('plans')"><span class="nii">💎</span>Subscription Plans</a>
-<a class="ni" onclick="sp('account')"><span class="nii">🔒</span>Account</a>
+<a class="ni" onclick="sp('plans')"><span class="nii">&#x1F48E;</span>Subscription Plans</a>
+<a class="ni" onclick="sp('account')"><span class="nii">&#x1F512;</span>Account</a>
 <a class="ni" onclick="sp('faq')"><span class="nii">?</span>FAQ</a>
 </nav><main id="mc">
+
 <div class="pg on" id="pg-gs">
-<div class="hero"><div class="hi">🛒</div><h2>Welcome to ShopShare</h2><p>ShopShare is your family's collaborative shopping list app. Add items, share lists in real time, and shop smarter together.</p></div>
+<div class="hero"><div class="hi">&#x1F6D2;</div><h2>Welcome to ShopShare</h2><p>ShopShare is your family shopping list app. Add items, share lists in real time, and shop smarter together.</p></div>
 <h2 class="st">Getting Started</h2>
-<div class="fg"><div class="fc"><div class="fi">🤝</div><div class="ft">Family Sharing</div><div class="fd">Share lists with your whole household in real time</div></div><div class="fc"><div class="fi">📶</div><div class="ft">Real-time Sync</div><div class="fd">Changes appear instantly on all devices</div></div><div class="fc"><div class="fi">📵</div><div class="ft">Offline Support</div><div class="fd">Works without internet, syncs when back online</div></div><div class="fc"><div class="fi">🎤</div><div class="ft">Voice Input</div><div class="fd">Add items hands-free using your voice</div></div><div class="fc"><div class="fi">🏷</div><div class="ft">8 Categories</div><div class="fd">Items are auto-categorized intelligently</div></div><div class="fc"><div class="fi">📊</div><div class="ft">Stats &amp; History</div><div class="fd">Track what you've bought and when</div></div></div>
+<div class="fg">
+<div class="fc"><div class="fi">&#x1F91D;</div><div class="ft">Family Sharing</div><div class="fd">Real-time collaboration with your household</div></div>
+<div class="fc"><div class="fi">&#x1F4F6;</div><div class="ft">Real-time Sync</div><div class="fd">Changes appear instantly on all devices</div></div>
+<div class="fc"><div class="fi">&#x1F4F5;</div><div class="ft">Offline Support</div><div class="fd">Works without internet, syncs when reconnected</div></div>
+<div class="fc"><div class="fi">&#x1F3A4;</div><div class="ft">Voice Input</div><div class="fd">Add items hands-free</div></div>
+<div class="fc"><div class="fi">&#x1F3F7;&#xFE0F;</div><div class="ft">8 Categories</div><div class="fd">Smart auto-categorization</div></div>
+<div class="fc"><div class="fi">&#x1F4CA;</div><div class="ft">Stats &amp; History</div><div class="fd">Track what you bought and when</div></div>
+</div>
 <h3 class="ss">Signing In</h3>
-<p>ShopShare uses Google Sign-In for quick and secure access. No separate password required.</p>
-<ol class="stp"><li><strong>Open ShopShare</strong> on your Android device. The splash screen appears briefly, then you see the Sign-In page.</li><li><strong>Tap "Continue with Google"</strong> &mdash; a Google account picker appears. Select your account.</li><li><strong>Allow permissions</strong> if prompted (e.g., microphone for voice input). Tap Allow.</li><li><strong>Done!</strong> ShopShare automatically creates your personal shopping list on first sign-in.</li></ol>
-<div class="tip"><em>💡</em><div>Your data is securely stored in Firebase and synced to every device where you sign in with the same Google account.</div></div>
-<h3 class="ss">Your First List</h3>
-<p>After signing in, ShopShare automatically creates a <strong>Personal List</strong> named <code>MyList_YourName</code>. It's private &mdash; only you can see it. Start adding items immediately!</p>
-<ol class="stp"><li><strong>Tap the + button</strong> (floating purple button, bottom right of the home screen). The Add Item screen opens.</li><li><strong>Type the item name</strong> &mdash; ShopShare will suggest matching items and auto-detect the category.</li><li><strong>Tap "Add to list"</strong> &mdash; your item appears in the list instantly.</li></ol>
+<p>ShopShare uses Google Sign-In for quick and secure access. No separate password needed.</p>
+<ol class="stp">
+<li><strong>Open ShopShare</strong> on your Android device. The sign-in screen appears.</li>
+<li><strong>Tap "Continue with Google"</strong> and select your Google account.</li>
+<li><strong>Allow permissions</strong> if prompted (microphone for voice input).</li>
+<li><strong>Done!</strong> Your personal list is created automatically on first sign-in.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Your data is stored in Firebase and synced to every device you sign in with the same Google account.</div></div>
 <h3 class="ss">Home Screen Overview</h3>
-<div class="card"><div class="ct">📱 Home Screen Layout</div><table><tr><th>Element</th><th>Description</th></tr><tr><td><strong>ShopShare</strong> (title)</td><td>Shows the app name and count of pending items</td></tr><tr><td><strong>My List / Shared / Search</strong> tabs</td><td>Switch between your personal list, shared list, and search mode</td></tr><tr><td>📅 Today icon</td><td>View and manage today's in-store shopping list</td></tr><tr><td>👁 Eye icon</td><td>Toggle visibility of completed items</td></tr><tr><td>🧹 Sweep icon</td><td>Delete all completed items at once</td></tr><tr><td>👤 Avatar (top right)</td><td>Access profile, settings, invite members, sign out</td></tr><tr><td>Category chips</td><td>Filter the list by category (Grocery, Electronics, etc.)</td></tr><tr><td>+ FAB button</td><td>Add a new item to the current list</td></tr></table></div>
+<div class="card"><div class="ct">&#x1F4F1; Home Screen Layout</div>
+<table><tr><th>Element</th><th>What it does</th></tr>
+<tr><td><strong>My List / Shared / Search</strong> tabs</td><td>Switch between your lists and search mode</td></tr>
+<tr><td>&#x1F4C5; Calendar icon (top bar)</td><td>View and manage Today's List</td></tr>
+<tr><td>&#x1F441;&#xFE0F; Eye icon (top bar)</td><td>Toggle visibility of completed items</td></tr>
+<tr><td>&#x1F9F9; Sweep icon (top bar)</td><td>Delete all completed items at once</td></tr>
+<tr><td>&#x1F464; Avatar (top right)</td><td>Profile, settings, invite members, sign out</td></tr>
+<tr><td>Category chips (below tabs)</td><td>Filter items by category</td></tr>
+<tr><td>+ FAB button (bottom right)</td><td>Add a new item</td></tr>
+</table></div>
 </div>
+
 <div class="pg" id="pg-lists">
-<div class="hero"><div class="hi">📋</div><h2>My Lists</h2><p>Manage your personal and shared shopping lists. Switch between them with a single tap.</p></div>
-<h2 class="st">Shopping Lists Overview</h2>
-<p>ShopShare supports two types of lists. You can switch between them at any time using the tab bar at the top of the home screen.</p>
-<div class="tc"><div class="card"><div class="ct">👤 Personal List</div><p>Private list only visible to you. Created automatically when you sign up. Named <code>MyList_YourName</code>.</p><div class="inf"><em>ℹ</em><div>You cannot invite others to your personal list. Create a Shared List to collaborate.</div></div></div><div class="card"><div class="ct">👥 Shared List</div><p>A collaborative list that multiple family members can view and edit in real time. Synced instantly across all devices.</p><div class="tip"><em>💡</em><div>Named <code>FamilyList_YourName</code> when created.</div></div></div></div>
-<h3 class="ss">Switching Between Lists</h3>
-<ol class="stp"><li>On the home screen, look at the <strong>oval tab bar</strong> just below the app title. You'll see <em>My List</em>, <em>Shared</em>, and <em>Search</em>.</li><li><strong>Tap "My List"</strong> to switch to your private personal list.</li><li><strong>Tap "Shared"</strong> to switch to your shared family list. If you haven't created or joined one yet, a message will appear.</li></ol>
-<div class="note"><em>ℹ</em><div>Your last active list is remembered. When you reopen the app, it shows the same list you were on.</div></div>
-<h3 class="ss">Creating a New Shared List</h3>
-<ol class="stp"><li>Tap your <strong>avatar</strong> (top right corner) and select <strong>"Invite Member"</strong>.</li><li>On the Manage Members screen, tap <strong>"Create a Shared Family List"</strong>.</li><li>Enter a <strong>name</strong> for your list (e.g., <em>Smith</em> or <em>Holidays</em>). The list will be named <code>FamilyList_Smith</code>.</li><li>Tap <strong>Create</strong>. The app automatically switches to your new shared list.</li></ol>
-<div class="tip"><em>💡</em><div>The <strong>Free plan</strong> lets you own 1 shared list. Upgrade to Family (3 lists) or Group (10 lists) for more.</div></div>
-<h3 class="ss">List Limits by Plan</h3>
-<table><tr><th>Plan</th><th>Owned Shared Lists</th><th>Joined Shared Lists</th><th>Members per List</th><th>History</th></tr><tr><td><span class="bx bf">FREE</span></td><td>1</td><td>2</td><td>5</td><td>30 days</td></tr><tr><td><span class="bx bfa">FAMILY</span></td><td>3</td><td>5</td><td>10</td><td>90 days</td></tr><tr><td><span class="bx bgr">GROUP</span></td><td>10</td><td>10</td><td>25</td><td>Unlimited</td></tr></table>
+<div class="hero"><div class="hi">&#x1F4CB;</div><h2>My Lists</h2><p>Manage personal and shared shopping lists. Switch between them with one tap.</p></div>
+<h2 class="st">Two Types of Lists</h2>
+<div class="tc">
+<div class="card"><div class="ct">&#x1F464; Personal List</div><p>Private, visible only to you. Auto-created on sign-up. Named <code>MyList_YourName</code>.</p><div class="inf"><em>&#x2139;&#xFE0F;</em><div>Personal lists cannot be shared. Create a Shared List to collaborate.</div></div></div>
+<div class="card"><div class="ct">&#x1F465; Shared List</div><p>Collaborative list for family members. Syncs instantly across all devices. Named <code>FamilyList_Name</code>.</p></div>
 </div>
+<h3 class="ss">Switching Between Lists</h3>
+<ol class="stp">
+<li>Look at the <strong>oval tab bar</strong> below the app title: <em>My List</em>, <em>Shared</em>, <em>Search</em>.</li>
+<li>Tap <strong>My List</strong> to view your personal list.</li>
+<li>Tap <strong>Shared</strong> to switch to your family list.</li>
+</ol>
+<div class="note"><em>&#x2139;&#xFE0F;</em><div>The app remembers your last active list when you reopen it.</div></div>
+<h3 class="ss">Creating a Shared List</h3>
+<ol class="stp">
+<li>Tap <strong>avatar</strong> (top right) &rarr; <strong>Invite Member</strong>.</li>
+<li>Tap <strong>Create a Shared Family List</strong>.</li>
+<li>Enter a name (e.g., Smith). Full list name: <code>FamilyList_Smith</code>.</li>
+<li>Tap <strong>Create</strong>. The app switches to the new shared list.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Free plan: 1 shared list. Family plan: 3. Group plan: 10.</div></div>
+<h3 class="ss">List Limits by Plan</h3>
+<table><tr><th>Plan</th><th>Owned Lists</th><th>Joined Lists</th><th>Members</th><th>History</th></tr>
+<tr><td><span class="bx bf">FREE</span></td><td>1</td><td>2</td><td>5</td><td>30 days</td></tr>
+<tr><td><span class="bx bfa">FAMILY</span></td><td>3</td><td>5</td><td>10</td><td>90 days</td></tr>
+<tr><td><span class="bx bgr">GROUP</span></td><td>10</td><td>10</td><td>25</td><td>Unlimited</td></tr>
+</table>
+</div>
+
 <div class="pg" id="pg-add">
-<div class="hero"><div class="hi">+</div><h2>Add an Item</h2><p>Add grocery items, household products, electronics, clothing &mdash; anything you need to buy &mdash; to your list in seconds.</p></div>
+<div class="hero"><div class="hi">+</div><h2>Add an Item</h2><p>Add groceries, electronics, clothing &mdash; anything you need &mdash; to your list in seconds.</p></div>
 <h2 class="st">Adding an Item Manually</h2>
-<ol class="stp"><li><strong>Tap the + button</strong> (purple floating button at the bottom right of the home screen). The "Add Item" screen opens.</li><li><strong>Type the item name</strong> in the "Item name" field. Example: <em>Atta, Milk, Headphones, Kurta, Tomatoes</em>.</li><li>After 3+ characters, <strong>autocomplete suggestions</strong> appear. Tap a suggestion to fill it in automatically &mdash; the category is set for you.</li><li><strong>Choose a category</strong> &mdash; ShopShare auto-detects the category. You can change it using the dropdown if needed.</li><li><strong>Set quantity and unit</strong> &mdash; Enter the number and choose a unit from the dropdown (pcs, kg, g, L, ml, dozen, box, pack, bunch, pair, bag, bottle, can, strip).</li><li><strong>Add notes</strong> (optional) &mdash; Extra details like brand preference or size (e.g., "Amul only" or "500g pack").</li><li>Tap <strong>"Add to list"</strong> or tap the <strong>"Add"</strong> button in the top right. The item is added instantly.</li></ol>
-<div class="tip"><em>💡</em><div>Item names are automatically capitalized. ShopShare includes a catalog of 500+ Indian and international item names with smart category detection.</div></div>
-<h3 class="ss">Smart Autocomplete</h3><script>
+<ol class="stp">
+<li><strong>Tap the + button</strong> (purple FAB, bottom right of home screen).</li>
+<li><strong>Type the item name</strong>. After 3+ characters, autocomplete suggestions appear. Tap a suggestion to auto-fill name and category.</li>
+<li><strong>Select category</strong> &mdash; auto-detected, or change it using the dropdown.</li>
+<li><strong>Set quantity and unit</strong> (pcs, kg, g, L, ml, dozen, box, pack, bunch, pair, bag, bottle, can, strip).</li>
+<li><strong>Add notes</strong> (optional) &mdash; brand preference, size, etc.</li>
+<li>Tap <strong>Add to list</strong>. Item appears instantly.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>ShopShare knows 500+ Indian and international items: Atta, Dal, Ghee, Sabzi, Kurta, Headphones and more. Smart Hindi keyword detection included.</div></div>
+<h3 class="ss">Available Categories</h3>
+<div class="fg">
+<div class="fc"><div class="fi">&#x1F6D2;</div><div class="ft"><span class="cat cg">Grocery</span></div><div class="fd">Food, staples, vegetables, dairy, fruits, spices</div></div>
+<div class="fc"><div class="fi">&#x1F4BB;</div><div class="ft"><span class="cat co">Online</span></div><div class="fd">Items ordered online</div></div>
+<div class="fc"><div class="fi">&#x1F3EA;</div><div class="ft"><span class="cat cp">Physical</span></div><div class="fd">From local shops, malls</div></div>
+<div class="fc"><div class="fi">&#x1F455;</div><div class="ft"><span class="cat cw">Wearables</span></div><div class="fd">Clothes, footwear, accessories</div></div>
+<div class="fc"><div class="fi">&#x1F3E0;</div><div class="ft"><span class="cat chm">Home &amp; Living</span></div><div class="fd">Cleaning, kitchen, decor</div></div>
+<div class="fc"><div class="fi">&#x1F48A;</div><div class="ft"><span class="cat chl">Health &amp; Beauty</span></div><div class="fd">Medicine, shampoo, skincare</div></div>
+<div class="fc"><div class="fi">&#x1F3AE;</div><div class="ft"><span class="cat ce">Electronics</span></div><div class="fd">Phones, gadgets, cables</div></div>
+<div class="fc"><div class="fi">&#x1F4DA;</div><div class="ft"><span class="cat ced">Education</span></div><div class="fd">Books, stationery</div></div>
+<div class="fc"><div class="fi">&#x1F4E6;</div><div class="ft"><span class="cat cx">Other</span></div><div class="fd">Anything else</div></div>
+</div>
+</div>
+
+<div class="pg" id="pg-voice">
+<div class="hero"><div class="hi">&#x1F3A4;</div><h2>Add by Voice</h2><p>Add items completely hands-free using speech recognition.</p></div>
+<h2 class="st">Using Voice Input</h2>
+<p>Voice input works in two steps: first say the action word, then say the item name.</p>
+<ol class="stp">
+<li><strong>Tap the microphone icon</strong> on the home screen. A bottom sheet slides up.</li>
+<li><strong>Say "Add"</strong> &mdash; say "Add", "Add item", or "Please add". The status text changes.</li>
+<li><strong>Say the item name</strong> clearly: "Milk", "2 kg Atta", "Toothpaste".</li>
+<li><strong>Review</strong> &mdash; the detected name and auto-detected category appear. Edit if needed.</li>
+<li><strong>Tap "Add to List"</strong>. The item is added and the sheet closes.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Say it in one go: "Add Milk" or "Add 2 packets Atta" &mdash; ShopShare skips straight to confirmation.</div></div>
+<ul class="bul">
+<li>Include quantities: "3 kg rice", "2 dozen eggs", "1 bottle shampoo"</li>
+<li>Filler words are ignored: "please", "buy", "get", "I need"</li>
+<li>Tap <strong>Retry</strong> if recognition is incorrect</li>
+<li>Tap the mic button again to stop listening</li>
+</ul>
+<div class="warn"><em>&#x26A0;&#xFE0F;</em><div>Requires microphone permission. If denied: Settings &rarr; Apps &rarr; ShopShare &rarr; Permissions &rarr; Microphone &rarr; Allow.</div></div>
+<table><tr><th>Step</th><th>Say</th><th>Mic Ring Color</th></tr>
+<tr><td><strong>Step 1 &ndash; Action</strong></td><td>"Add", "Add item", "Please add"</td><td>Cyan / Blue</td></tr>
+<tr><td><strong>Step 2 &ndash; Item name</strong></td><td>The item (e.g., "Tomatoes")</td><td>Purple</td></tr>
+</table>
+</div>
+
+<div class="pg" id="pg-edit">
+<div class="hero"><div class="hi">&#x270F;&#xFE0F;</div><h2>Edit an Item</h2><p>Update the quantity, unit, or notes on any item in your list.</p></div>
+<h2 class="st">Edit Quantity and Unit</h2>
+<ol class="stp">
+<li>Find the item. Look for the <strong>quantity chip</strong> below the name (e.g., <code>2 kg</code> or <code>x3</code>). It shows a small pencil icon.</li>
+<li><strong>Tap the quantity chip</strong>. A bottom sheet slides up.</li>
+<li>Enter the <strong>new quantity</strong> and select the <strong>unit</strong> from the dropdown.</li>
+<li>Tap the <strong>checkmark</strong> to save. The card updates immediately.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Changes to shared list items sync instantly to all family members.</div></div>
+<h3 class="ss">Notes</h3>
+<p>Notes are set when you first add an item. To change notes on an existing item, delete it and re-add with updated notes. Notes appear in italic below the item name on the card.</p>
+<div class="note"><em>&#x2139;&#xFE0F;</em><div>Full inline editing (name, category, notes) is planned for a future ShopShare update.</div></div>
+</div>
+
+<div class="pg" id="pg-move">
+<div class="hero"><div class="hi">&#x1F4E6;</div><h2>Move Items</h2><p>Move items between lists or copy them to Today's List for your shopping trip.</p></div>
+<h2 class="st">Select Items to Move</h2>
+<ol class="stp">
+<li><strong>Tap the checkbox</strong> on the right side of any item card. The card highlights purple and a counter appears in the top bar.</li>
+<li>Select more items if needed (bulk move).</li>
+<li>Tap the <strong>Move icon</strong> in the toolbar. The Move dialog appears.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Tap the deselect icon (X) in the top bar to clear all selections.</div></div>
+<h3 class="ss">Where Can You Move Items?</h3>
+<table><tr><th>Destination</th><th>What Happens</th></tr>
+<tr><td><strong>Today's List</strong></td><td>Copies item to Today's List. Original stays in the source list.</td></tr>
+<tr><td><strong>Shared List</strong></td><td>Moves item to your shared family list. Removed from current, added to shared.</td></tr>
+<tr><td><strong>Another Personal List</strong></td><td>Moves item to another personal list (if you have multiple).</td></tr>
+</table>
+<h3 class="ss">Move to Today's List</h3>
+<ol class="stp">
+<li>Select items using checkboxes.</li>
+<li>Tap <strong>Move</strong> in the top bar.</li>
+<li>Tap <strong>Today's List</strong> in the dialog. A green toast confirms.</li>
+</ol>
+<h3 class="ss">Move to Shared List</h3>
+<ol class="stp">
+<li>Select items from your personal list.</li>
+<li>Tap <strong>Move</strong> then the shared list name in the dialog.</li>
+<li>Items are removed from personal and instantly added to shared. All members see them.</li>
+</ol>
+<div class="note"><em>&#x2139;&#xFE0F;</em><div>The Move option only appears in the toolbar when one or more items are selected.</div></div>
+</div>
+
+<div class="pg" id="pg-del">
+<div class="hero"><div class="hi">&#x1F5D1;&#xFE0F;</div><h2>Delete Items</h2><p>Remove items by swiping, bulk-delete selected items, or clear all completed at once.</p></div>
+<h2 class="st">Swipe to Delete (Single Item)</h2>
+<ol class="stp">
+<li><strong>Swipe the item card left</strong>. A red delete background appears.</li>
+<li>A <strong>confirmation dialog</strong> appears. Tap <strong>Delete</strong> to confirm permanently.</li>
+</ol>
+<div class="warn"><em>&#x26A0;&#xFE0F;</em><div>Deletion is permanent and cannot be undone. There is no recycle bin.</div></div>
+<h3 class="ss">Bulk Delete (Multiple Items)</h3>
+<ol class="stp">
+<li>Tap the checkboxes on the right side of item cards to select multiple items.</li>
+<li>Tap the <strong>red trash icon</strong> that appears in the top bar.</li>
+<li>Confirm in the dialog. All selected items are permanently removed.</li>
+</ol>
+<h3 class="ss">Delete All Completed Items</h3>
+<ol class="stp">
+<li>Tap the <strong>orange sweep icon</strong> in the top bar (turns orange when completed items exist).</li>
+<li>A dialog shows how many completed items will be deleted.</li>
+<li>Tap <strong>Delete</strong>. All completed items are removed.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>To hide completed items without deleting, use the eye icon (Show/Hide completed) instead.</div></div>
+</div>
+
+<div class="pg" id="pg-cat">
+<div class="hero"><div class="hi">&#x1F3F7;&#xFE0F;</div><h2>Categories &amp; Filters</h2><p>Filter your list by category to focus on one section of the store at a time.</p></div>
+<h2 class="st">Using Category Filters</h2>
+<p>Category filter chips appear in a horizontal scrollable row just below the tab bar.</p>
+<ol class="stp">
+<li>Look at the <strong>chip row</strong> below the My List / Shared / Search tabs.</li>
+<li>Tap any category chip (e.g., Grocery). The list filters instantly. The chip turns solid colored.</li>
+<li>Tap <strong>All</strong> (first chip) to remove the filter and show everything.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Category filtering works on both personal and shared lists.</div></div>
+<h3 class="ss">Category Reference</h3>
+<table><tr><th>Category</th><th>Color</th><th>Typical Items</th></tr>
+<tr><td><span class="cat cg">Grocery</span></td><td>Green</td><td>Atta, Dal, Rice, Milk, Vegetables, Fruits, Spices, Oil, Tea</td></tr>
+<tr><td><span class="cat co">Online</span></td><td>Blue</td><td>Items ordered from Amazon, Flipkart etc.</td></tr>
+<tr><td><span class="cat cp">Physical</span></td><td>Orange</td><td>Items from local shops, malls, markets</td></tr>
+<tr><td><span class="cat cw">Wearables</span></td><td>Purple</td><td>Kurta, Jeans, Shoes, Saree, Shirt, Cap</td></tr>
+<tr><td><span class="cat chm">Home &amp; Living</span></td><td>Teal</td><td>Soap, Detergent, Broom, Towel, Pan, Curtains</td></tr>
+<tr><td><span class="cat chl">Health &amp; Beauty</span></td><td>Pink</td><td>Shampoo, Toothpaste, Cream, Dawa, Vitamin</td></tr>
+<tr><td><span class="cat ce">Electronics</span></td><td>Indigo</td><td>Phone, Charger, Headphones, Cable, Laptop</td></tr>
+<tr><td><span class="cat ced">Education</span></td><td>Amber</td><td>Book, Pen, Pencil, Notebook, Eraser, Ruler</td></tr>
+<tr><td><span class="cat cx">Other</span></td><td>Grey</td><td>Anything that does not fit other categories</td></tr>
+</table>
+<h3 class="ss">Auto-Detection</h3>
+<p>ShopShare auto-detects category using a 500+ item catalog and keyword patterns including Hindi and Indian words. You can always manually change the category using the dropdown on the Add Item screen.</p>
+</div>
+
+<div class="pg" id="pg-srch">
+<div class="hero"><div class="hi">&#x1F50D;</div><h2>Search</h2><p>Find any item quickly by name, category, or the date it was added.</p></div>
+<h2 class="st">Using Search</h2>
+<ol class="stp">
+<li>Tap the <strong>Search tab</strong> in the oval menu bar. The keyboard opens automatically.</li>
+<li><strong>Type to search</strong> by item name or category. Results update instantly.</li>
+<li>To clear, tap X in the search field or switch to another tab.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Search is case-insensitive. Partial matches work: type "tom" to find "Tomatoes", "Tomato sauce" etc.</div></div>
+<h3 class="ss">Filter by Date</h3>
+<ol class="stp">
+<li>In the Search tab, tap the <strong>Filter by date</strong> chip below the search box.</li>
+<li>A calendar opens. Select a date.</li>
+<li>Only items added on that date are shown. A date chip appears &mdash; tap X to remove it.</li>
+</ol>
+<div class="inf"><em>&#x2139;&#xFE0F;</em><div>Text search and date filter can be active at the same time to narrow down a specific item from a specific day.</div></div>
+</div>
+
+<div class="pg" id="pg-today">
+<div class="hero"><div class="hi">&#x1F4C5;</div><h2>Today's List</h2><p>A quick in-session checklist for your shopping trip. Check off items as you buy them!</p></div>
+<h2 class="st">What is Today's List?</h2>
+<p>Today's List is a temporary in-memory checklist. It does not sync to the cloud and resets when you close the app.</p>
+<div class="card"><div class="ct">&#x1F4C5; Key Facts</div>
+<ul class="bul">
+<li>Items are <strong>copied</strong> from your main list into Today's List</li>
+<li>Does <strong>not sync</strong> to cloud or other devices</li>
+<li>Completing items here also marks them done in the main list</li>
+<li>Calendar icon turns <strong>bright green</strong> when Today's List has items</li>
+<li>Resets when you close the app</li>
+</ul></div>
+<h3 class="ss">Add Items to Today's List</h3>
+<ol class="stp">
+<li><strong>Select items</strong> on the home screen using the checkboxes on the right of each card.</li>
+<li>Tap the <strong>Move icon</strong> in the top bar.</li>
+<li>Tap <strong>Today's List</strong> in the dialog. A green toast confirms.</li>
+</ol>
+<h3 class="ss">View and Complete</h3>
+<ol class="stp">
+<li>Tap the <strong>green calendar icon</strong> in the top bar.</li>
+<li>Check off items you have bought using the checkboxes.</li>
+<li>Tap <strong>Hurray! Completed</strong> to mark all done, or <strong>Complete (X)</strong> for selected only.</li>
+<li>Done items are marked complete in the main list and removed from Today's List.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Tap <strong>Clear List</strong> to remove all items without marking them as completed.</div></div>
+</div>
+
+<div class="pg" id="pg-done">
+<div class="hero"><div class="hi">&#x2705;</div><h2>Completed Items</h2><p>Track bought items, toggle visibility, restore them, or clear them all.</p></div>
+<h2 class="st">Mark an Item as Complete</h2>
+<ol class="stp">
+<li>Tap the <strong>circle icon</strong> on the left of any item card. It becomes a checkmark with strikethrough.</li>
+<li>The card shows who completed it and when (e.g., "Rahul &middot; 2h ago").</li>
+<li>Tap the checkmark again to <strong>uncheck</strong> and restore the item to pending.</li>
+</ol>
+<div class="note"><em>&#x2139;&#xFE0F;</em><div>In a shared list, all members can see who marked each item as completed and when.</div></div>
+<h3 class="ss">Show and Hide Completed</h3>
+<ol class="stp">
+<li>Tap the <strong>eye icon</strong> in the top bar to toggle visibility.</li>
+<li>Eye open = completed items shown at bottom with strikethrough.</li>
+<li>Eye closed = completed items hidden.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Hiding completed items makes it easier to focus on what you still need to buy.</div></div>
+<h3 class="ss">History Limits by Plan</h3>
+<table><tr><th>Plan</th><th>History</th></tr>
+<tr><td><span class="bx bf">FREE</span></td><td>30 days</td></tr>
+<tr><td><span class="bx bfa">FAMILY</span></td><td>90 days</td></tr>
+<tr><td><span class="bx bgr">GROUP</span></td><td>Unlimited</td></tr>
+</table>
+</div>
+
+<div class="pg" id="pg-create">
+<div class="hero"><div class="hi">&#x1F465;</div><h2>Create a Shared List</h2><p>Create a family list so everyone can add items and shop together in real time.</p></div>
+<h2 class="st">Create Your Shared List</h2>
+<ol class="stp">
+<li>Tap your <strong>avatar</strong> (top right) and select <strong>Invite Member</strong>.</li>
+<li>Tap <strong>Create a Shared Family List</strong>.</li>
+<li>Enter a name (e.g., Smith, Gupta, Kitchen). The full name will be <code>FamilyList_Smith</code>.</li>
+<li>Tap <strong>Create</strong>. The app switches to the new list.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Your List ID appears on the Manage Members screen after creating. Share this ID so family members can join.</div></div>
+<h3 class="ss">Owner Permissions</h3>
+<p>As the list owner, you can: invite and remove members, add/edit/delete items, share the List ID, and see the full member list. Members can add/edit/delete items but cannot invite others.</p>
+<div class="warn"><em>&#x26A0;&#xFE0F;</em><div>If you delete your account, all shared lists you own are deleted permanently. All members lose access.</div></div>
+</div>
+
+<div class="pg" id="pg-invite">
+<div class="hero"><div class="hi">&#x1F4E8;</div><h2>Invite Members</h2><p>Invite family members to join your shared list via WhatsApp, Email, or any app.</p></div>
+<h2 class="st">How to Invite</h2>
+<ol class="stp">
+<li>Switch to your <strong>Shared List</strong> (Shared tab).</li>
+<li>Tap <strong>avatar</strong> (top right) and select <strong>Invite Member</strong>.</li>
+<li>You will see the <strong>List ID card</strong> at the top. Choose how to share:</li>
+</ol>
+<div class="tc">
+<div class="card"><div class="ct" style="color:#25D366">&#x1F4AC; WhatsApp</div><p>Tap <strong>WhatsApp</strong>. A pre-written invite message opens. Send to a contact.</p></div>
+<div class="card"><div class="ct" style="color:#1565C0">&#x1F4E7; Email</div><p>Tap <strong>Email</strong>. Your email app opens with a pre-filled invite message.</p></div>
+</div>
+<div class="card"><div class="ct">&#x1F4E4; More / Other Apps</div><p>Tap <strong>More</strong> to open the system share sheet: Telegram, SMS, copy to clipboard, etc.</p></div>
+<div class="card"><div class="ct">&#x1F4CB; Copy List ID</div><p>In the List ID card, tap the <strong>copy icon</strong> to copy to clipboard. Paste it manually anywhere.</p></div>
+<h3 class="ss">Member Limits</h3>
+<table><tr><th>Plan</th><th>Max Members per List</th></tr>
+<tr><td><span class="bx bf">FREE</span></td><td>5 members</td></tr>
+<tr><td><span class="bx bfa">FAMILY</span></td><td>10 members</td></tr>
+<tr><td><span class="bx bgr">GROUP</span></td><td>25 members</td></tr>
+</table>
+<div class="note"><em>&#x2139;&#xFE0F;</em><div>Only the list <strong>owner</strong> can invite new members. Members cannot invite others.</div></div>
+</div>
+
+<div class="pg" id="pg-join">
+<div class="hero"><div class="hi">&#x1F517;</div><h2>Join a Shared List</h2><p>Have a List ID? Enter it to join someone's shared shopping list.</p></div>
+<h2 class="st">How to Join</h2>
+<ol class="stp">
+<li>Ask the list owner for their <strong>List ID</strong>.</li>
+<li>Tap <strong>avatar</strong> (top right) &rarr; <strong>Invite Member</strong>.</li>
+<li>Scroll to the <strong>Join a Shared List</strong> section at the bottom.</li>
+<li><strong>Paste or type the List ID</strong> in the input field.</li>
+<li>Tap <strong>Join</strong>. The app switches to the shared list.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Free plan: join up to 2 lists. Family: 5. Group: 10.</div></div>
+<h3 class="ss">After Joining</h3>
+<ul class="bul">
+<li>You become an Active member and can see and edit all items</li>
+<li>Your name appears in the members list</li>
+<li>You cannot invite other members (only the owner can)</li>
+</ul>
+<h3 class="ss">Possible Errors</h3>
+<table><tr><th>Error</th><th>Solution</th></tr>
+<tr><td>List not found</td><td>Double-check the ID and try again</td></tr>
+<tr><td>Already a member</td><td>Switch to the Shared tab to view the list</td></tr>
+<tr><td>Joined list limit reached</td><td>Upgrade your plan</td></tr>
+</table>
+</div>
+
+<div class="pg" id="pg-members">
+<div class="hero"><div class="hi">&#x1F46C;</div><h2>Manage Members</h2><p>View current members, check their status, and understand owner vs member roles.</p></div>
+<h2 class="st">Viewing Members</h2>
+<ol class="stp">
+<li>Tap <strong>avatar</strong> (top right) &rarr; <strong>Invite Member</strong>.</li>
+<li>Scroll to <strong>Current Members</strong>. See each member's name, email, and status.</li>
+</ol>
+<table><tr><th>Status Badge</th><th>Meaning</th></tr>
+<tr><td><span class="bx bt">Active</span></td><td>Member has joined and can access the list</td></tr>
+<tr><td><span class="bx ba">Pending</span></td><td>Invited but has not joined yet</td></tr>
+</table>
+<h3 class="ss">Owner vs Member</h3>
+<div class="tc">
+<div class="card"><div class="ct">&#x1F451; Owner</div><ul class="bul"><li>Creates the list</li><li>Invites and removes members</li><li>Full item control</li><li>Sees List ID and invite buttons</li></ul></div>
+<div class="card"><div class="ct">&#x1F465; Member</div><ul class="bul"><li>Joins via List ID</li><li>Can add, edit, delete items</li><li>Cannot invite others</li><li>Can see other members</li></ul></div>
+</div>
+<div class="note"><em>&#x2139;&#xFE0F;</em><div>The owner role cannot currently be transferred. If the owner deletes their account, the list is deleted for all members.</div></div>
+</div>
+<div class="fq"><div class="fqq" onclick="tf(this)">Why are my items not showing on my family member phone?<span class="far">&#9660;</span></div><div class="fqa">Make sure both are on the <strong>Shared tab</strong> (not My List). Items in personal lists are private. Check internet connection - items sync in real time when online.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">I invited someone but they show as Pending. What should they do?<span class="far">&#9660;</span></div><div class="fqa">They need to open ShopShare, tap avatar, then Invite Member, scroll to Join a Shared List, enter the List ID, and tap Join.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">Can I use ShopShare without internet?<span class="far">&#9660;</span></div><div class="fqa">Yes! Offline support is built in. You can add, view, and check off items without internet. Changes sync when back online.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">I accidentally deleted an item. Can I restore it?<span class="far">&#9660;</span></div><div class="fqa">No. Deleted items are permanent. Use the eye icon to hide completed items instead of deleting them.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">Voice input is not working.<span class="far">&#9660;</span></div><div class="fqa">Check microphone permission: Settings then Apps then ShopShare then Permissions then Microphone then Allow. Say Add first, then the item name.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">Old completed items are not showing.<span class="far">&#9660;</span></div><div class="fqa">History limits apply: 30 days (Free), 90 days (Family), Unlimited (Group). A notice appears when items are hidden. Upgrade to see older history.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">How do I change my display name?<span class="far">&#9660;</span></div><div class="fqa">Tap avatar, then My Profile, then the pencil icon, update your name, and tap Save.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">How do I send feedback or report a bug?<span class="far">&#9660;</span></div><div class="fqa">Settings then Support then Feedback / Report Issue, type your message (max 300 chars), and tap Submit.</div></div>
+</div>
+
+<div class="pg" id="pg-themes">
+<div class="hero"><div class="hi">&#x1F3A8;</div><h2>Themes</h2><p>Three beautiful themes to match your style.</p></div>
+<h2 class="st">Changing the Theme</h2>
+<ol class="stp">
+<li>Tap your <strong>avatar</strong> (top right) and select <strong>Settings</strong>.</li>
+<li>Under <strong>Appearance</strong>, find the Theme tile.</li>
+<li>Tap your preferred theme. The app updates instantly.</li>
+</ol>
+<div class="tc3">
+<div class="pc pf"><div style="font-size:26px">&#x1F31F;</div><div class="pn">System</div><div class="pb" style="background:#607D8B;color:#fff">DEFAULT</div><ul><li>Follows device setting</li><li>Light in day, dark at night</li><li>Purple / teal palette</li></ul></div>
+<div class="pc pfa"><div style="font-size:26px">&#x1F33F;</div><div class="pn">Soothing</div><div class="pb" style="background:#5B8A6F;color:#fff">CALM</div><ul><li>Soft sage green palette</li><li>Warm white background</li><li>Easy on the eyes</li></ul></div>
+<div class="pc pgr"><div style="font-size:26px">&#x1F303;</div><div class="pn">Vibrant Dark</div><div class="pb" style="background:#9D4EDD;color:#fff">NIGHT</div><ul><li>Deep navy background</li><li>Electric purple accents</li><li>Great for night use</li></ul></div>
+</div>
+<div class="tip"><em>&#x1F4A1;</em><div>Theme choice is saved and remembered next time you open ShopShare.</div></div>
+</div>
+
+<div class="pg" id="pg-notif">
+<div class="hero"><div class="hi">&#x1F514;</div><h2>Notifications</h2><p>Control when ShopShare notifies you. Mute for hours or days.</p></div>
+<h2 class="st">Notification Settings</h2>
+<ol class="stp">
+<li>Tap <strong>avatar</strong> then <strong>Settings</strong>.</li>
+<li>Under Notifications, choose your mode.</li>
+</ol>
+<table>
+<tr><th>Option</th><th>What it Does</th></tr>
+<tr><td><strong>Always on</strong></td><td>Notifications enabled at all times (default)</td></tr>
+<tr><td><strong>Mute 8 hours</strong></td><td>Mutes for the next 8 hours</td></tr>
+<tr><td><strong>Mute 24 hours</strong></td><td>Mutes for 24 hours</td></tr>
+<tr><td><strong>Custom...</strong></td><td>Choose 1 to 30 days to mute</td></tr>
+</table>
+<p>To re-enable: Settings &rarr; Notifications &rarr; tap <strong>Always on</strong>.</p>
+<div class="note"><em>&#x2139;&#xFE0F;</em><div>Mute settings are local and do not sync across devices.</div></div>
+</div>
+
+<div class="pg" id="pg-profile">
+<div class="hero"><div class="hi">&#x1F464;</div><h2>Profile</h2><p>Edit your name, gender, copy your List ID, and view shopping stats.</p></div>
+<h2 class="st">Edit Your Profile</h2>
+<ol class="stp">
+<li>Tap <strong>avatar</strong> then <strong>My Profile</strong>.</li>
+<li>Tap the <strong>pencil icon</strong> (top right) to enter edit mode.</li>
+<li>Update Display Name and/or Gender. Tap <strong>Save</strong>.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Your display name is shown to all members in shared lists when you add or complete items.</div></div>
+<table>
+<tr><th>Field</th><th>Description</th><th>Editable?</th></tr>
+<tr><td>Display Name</td><td>Shown to other members</td><td>Yes</td></tr>
+<tr><td>Gender</td><td>Affects avatar icon (Male/Female/Other)</td><td>Yes</td></tr>
+<tr><td>Email</td><td>Google account email</td><td>No</td></tr>
+<tr><td>Plan</td><td>Free, Family, or Group</td><td>No</td></tr>
+<tr><td>List ID</td><td>Personal list ID, tap copy icon to copy</td><td>No</td></tr>
+</table>
+<h3 class="ss">Shopping Stats</h3>
+<div class="fg">
+<div class="fc"><div class="fi">&#x1F6D2;</div><div class="ft">Items Added</div><div class="fd">Total items you have added</div></div>
+<div class="fc"><div class="fi">&#x2705;</div><div class="ft">Completed</div><div class="fd">Items marked as done</div></div>
+<div class="fc"><div class="fi">&#x23F3;</div><div class="ft">Pending</div><div class="fd">Items still to buy</div></div>
+<div class="fc"><div class="fi">&#x1F465;</div><div class="ft">Members</div><div class="fd">Members in your current list</div></div>
+</div>
+</div>
+
+<div class="pg" id="pg-plans">
+<div class="hero"><div class="hi">&#x1F48E;</div><h2>Subscription Plans</h2><p>Three plans for different household sizes.</p></div>
+<h2 class="st">Available Plans</h2>
+<div class="tc3">
+<div class="pc pf"><div class="pn">Free Plan</div><div class="pb" style="background:#5C5C8A;color:#fff">FREE</div><ul><li>1 personal list</li><li>1 owned shared list</li><li>Join 2 shared lists</li><li>5 members per list</li><li>30 days history</li></ul></div>
+<div class="pc pfa"><div class="pn">Family Plan</div><div class="pb" style="background:#1565C0;color:#fff">FAMILY</div><ul><li>1 personal list</li><li>3 owned shared lists</li><li>Join 5 shared lists</li><li>10 members per list</li><li>90 days history</li></ul></div>
+<div class="pc pgr"><div class="pn">Group Plan</div><div class="pb" style="background:#2E7D32;color:#fff">GROUP</div><ul><li>1 personal list</li><li>10 owned shared lists</li><li>Join 10 shared lists</li><li>25 members per list</li><li>Unlimited history</li></ul></div>
+</div>
+<h3 class="ss">Plan Comparison</h3>
+<table>
+<tr><th>Feature</th><th>FREE</th><th>FAMILY</th><th>GROUP</th></tr>
+<tr><td>Owned Shared Lists</td><td>1</td><td>3</td><td>10</td></tr>
+<tr><td>Joined Lists</td><td>2</td><td>5</td><td>10</td></tr>
+<tr><td>Members per List</td><td>5</td><td>10</td><td>25</td></tr>
+<tr><td>Item History</td><td>30 days</td><td>90 days</td><td>Unlimited</td></tr>
+<tr><td>Voice Input</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Offline Support</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+</table>
+<div class="note"><em>&#x2139;&#xFE0F;</em><div>Your current plan is shown on the Profile screen. Use Settings &rarr; Feedback to contact support.</div></div>
+</div>
+
+<div class="pg" id="pg-account">
+<div class="hero"><div class="hi">&#x1F512;</div><h2>Account</h2><p>Manage your sign-in, sign out, and account deletion.</p></div>
+<h2 class="st">Sign Out</h2>
+<ol class="stp">
+<li>Tap your <strong>avatar</strong> (top right) and select <strong>Sign Out</strong>, or go to Settings &rarr; Account &rarr; Sign Out.</li>
+<li>Confirm in the dialog. Tap <strong>Sign Out</strong>.</li>
+<li>You are taken to the login screen. Your data stays in the cloud.</li>
+</ol>
+<div class="tip"><em>&#x1F4A1;</em><div>Sign back in anytime with the same Google account to access all your data.</div></div>
+<h3 class="ss">Delete Account</h3>
+<p>Account deletion is <strong>permanent and irreversible</strong>.</p>
+<div class="warn"><em>&#x26A0;&#xFE0F;</em><div><strong>Warning:</strong> Deletes ALL your lists, items, shared lists you own (all members lose access), and profile data. Cannot be undone.</div></div>
+<ol class="stp">
+<li>Go to Settings &rarr; Account &rarr; <strong>Delete Account</strong>.</li>
+<li>Read the warning. Tap <strong>Continue</strong>.</li>
+<li>Type <code>DELETE</code> (all caps) to confirm.</li>
+<li>Tap <strong>Delete My Account</strong>. Deletion begins immediately.</li>
+</ol>
+<div class="note"><em>&#x2139;&#xFE0F;</em><div>If you get a requires-recent-login error, sign out and sign back in first, then try again.</div></div>
+</div>
+
+<div class="pg" id="pg-faq">
+<div class="hero"><div class="hi">?</div><h2>FAQ &amp; Troubleshooting</h2><p>Common questions and solutions.</p></div>
+<h2 class="st">Frequently Asked Questions</h2>
+<div class="fq"><div class="fqq" onclick="tf(this)">Why are my items not showing on my family member phone?<span class="far">&#9660;</span></div><div class="fqa">Make sure both are on the <strong>Shared tab</strong> (not My List). Personal list items are private. Check internet - items sync in real time when online.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">I invited someone but they show as Pending.<span class="far">&#9660;</span></div><div class="fqa">They need to open ShopShare, tap avatar, then Invite Member, scroll to Join a Shared List, enter the List ID, and tap Join.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">Can I use ShopShare without internet?<span class="far">&#9660;</span></div><div class="fqa">Yes. Offline support is built in via local cache. Changes sync automatically when back online.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">I accidentally deleted an item. Can I restore it?<span class="far">&#9660;</span></div><div class="fqa">No. Deleted items are permanent. Use the eye icon to hide completed items instead of deleting.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">Voice input is not working.<span class="far">&#9660;</span></div><div class="fqa">Check microphone permission: Settings then Apps then ShopShare then Permissions then Microphone then Allow. Say Add first, then the item name.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">Old completed items are not showing.<span class="far">&#9660;</span></div><div class="fqa">History limits: 30 days (Free), 90 days (Family), Unlimited (Group). A notice appears when items are hidden due to limits.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">How do I change my display name?<span class="far">&#9660;</span></div><div class="fqa">Tap avatar, then My Profile, tap the pencil icon, update name, tap Save.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">Items are not syncing to my other device.<span class="far">&#9660;</span></div><div class="fqa">Check internet connection on both devices. Make sure same Google account. Try signing out and back in on the affected device.</div></div>
+<div class="fq"><div class="fqq" onclick="tf(this)">How do I send feedback or report a bug?<span class="far">&#9660;</span></div><div class="fqa">Settings then Support then Feedback / Report Issue, type message (max 300 chars), tap Submit.</div></div>
+</div>
+</main></div>
+<script>
 function sp(id){
-  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on')});
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on');});
   var pg=document.getElementById('pg-'+id);
   if(pg){pg.classList.add('on');}
   document.querySelectorAll('.ni,.ns').forEach(function(n){
@@ -170,8 +623,10 @@ function sp(id){
   window.scrollTo(0,0);
 }
 function ts(){
-  document.getElementById('sb').classList.toggle('on');
-  document.getElementById('ov').classList.toggle('on');
+  var sb=document.getElementById('sb');
+  var ov=document.getElementById('ov');
+  if(sb)sb.classList.toggle('on');
+  if(ov)ov.classList.toggle('on');
 }
 function tf(el){
   el.classList.toggle('on');
