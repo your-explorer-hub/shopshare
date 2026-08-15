@@ -1,0 +1,101 @@
+# Flutter/Dart build outputs
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+**/generated_plugin_registrant.dart
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Android specific
+*.iml
+*.class
+*.log
+*.pyc
+*.swp
+.gradle/
+local.properties
+.DS_Store
+/captures/
+.cxx/
+android/.gradle
+android/captures/
+android/gradle/wrapper/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/key.properties
+android/*.jks
+android/app/google-services.json
+
+# iOS specific (if added later)
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+ios/.symlinks/
+ios/Pods/
+ios/Podfile.lock
+ios/.generated/
+ios/Flutter/flutter_export_environment.sh
+ios/ServiceDefinitions.json
+ios/Runner/GoogleService-Info.plist
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+.firebaserc
+lib/firebase_options.dart
+
+# Build artifacts
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+/build/
+ShopShare*.apk
+ShopShare*.aab
+AAB_BUILD_SUCCESS.txt
+
+# Backup files
+*.backup
+pubspec.yaml.phase*.backup
+
+# Python (docs generation scripts - not part of app)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+
+# Store listing assets (large files, managed separately)
+StoreListing/
+
+# Documentation generation scripts (not part of app code)
+*.py
+docs/*.py
+docs/parts/
+docs/hdsf-saas/
+
+# Claude Code local settings
+.claude/
+
+# Temporary files
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# Large documentation files
+user-manual.html

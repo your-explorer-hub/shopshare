@@ -1,0 +1,7 @@
+# Web app access allowlist
+# Add one email per line (exact match, case-sensitive)
+# Lines starting with # are comments and are ignored
+# No limit on number of emails — add as many as needed
+manojkumar029@gmail.com
+manjarinarnoly@gmail.com
+agarwalrppat@gmail.com
