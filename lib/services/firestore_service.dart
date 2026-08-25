@@ -8,11 +8,14 @@ import 'package:uuid/uuid.dart';
 import '../models/member.dart';
 import '../models/shopping_item.dart';
 import '../models/shopping_list.dart';
+import '../models/custom_category.dart';
+import '../models/category_item.dart';
 import '../repositories/invite_repository.dart';
 import '../repositories/item_repository.dart';
 import '../repositories/list_repository.dart';
 import '../repositories/member_repository.dart';
 import '../repositories/user_repository.dart';
+import '../repositories/custom_category_repository.dart';
 import '../utils/subscription_limits.dart';
 
 /// Facade for Firestore operations, delegating to domain-specific repositories.
@@ -27,6 +30,7 @@ import '../utils/subscription_limits.dart';
 /// - ListRepository: List creation, deletion, membership
 /// - UserRepository: User profiles and account management
 /// - InviteRepository: Email and link invitation system
+/// - CustomCategoryRepository: Custom category templates and items
 class FirestoreService {
   FirestoreService._();
   static final FirestoreService instance = FirestoreService._();
@@ -41,6 +45,8 @@ class FirestoreService {
   late final ListRepository _lists = ListRepository(_firestore, _analytics, _uuid);
   late final UserRepository _users = UserRepository(_firestore, _uuid, _lists);
   late final InviteRepository _invites = InviteRepository(_firestore, _uuid);
+  late final CustomCategoryRepository _customCategories =
+      CustomCategoryRepository(_firestore, _analytics, _uuid);
 
   // ═══════════════════════════════════════════════════════════════════════════
   // Item Operations (delegates to ItemRepository)
@@ -294,6 +300,77 @@ class FirestoreService {
 
   Future<void> declineInvite(String inviteId) =>
       _invites.declineInvite(inviteId);
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Custom Category Operations (delegates to CustomCategoryRepository)
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  Stream<List<CustomCategory>> watchCustomCategories(String userId) =>
+      _customCategories.watchCategories(userId);
+
+  Future<CustomCategory> createCustomCategory(
+    String userId,
+    String name, {
+    required int existingCount,
+  }) =>
+      _customCategories.createCategory(userId, name,
+          existingCount: existingCount);
+
+  Future<void> updateCustomCategory(CustomCategory category) =>
+      _customCategories.updateCategory(category);
+
+  Future<void> deleteCustomCategory(String categoryId, String userId) =>
+      _customCategories.deleteCategory(categoryId, userId);
+
+  Future<bool> canCreateCustomCategory(String userId, SubscriptionTier tier) =>
+      _customCategories.canCreateCategory(userId, tier);
+
+  // ── Category Items ──
+
+  Stream<List<CategoryItem>> watchCategoryItems(
+          String categoryId, String userId) =>
+      _customCategories.watchCategoryItems(categoryId, userId);
+
+  Future<CategoryItem> addCategoryItem({
+    required String categoryId,
+    required String userId,
+    required String name,
+    String? notes,
+    int? quantity,
+    String? unit,
+  }) =>
+      _customCategories.addItem(
+        categoryId: categoryId,
+        userId: userId,
+        name: name,
+        notes: notes,
+        quantity: quantity,
+        unit: unit,
+      );
+
+  Future<void> updateCategoryItem(CategoryItem item) =>
+      _customCategories.updateItem(item);
+
+  Future<void> deleteCategoryItem(
+          String itemId, String categoryId, String userId) =>
+      _customCategories.deleteItem(itemId, categoryId, userId);
+
+  Future<bool> canAddCategoryItem(
+          String categoryId, String userId, SubscriptionTier tier) =>
+      _customCategories.canAddItem(categoryId, userId, tier);
+
+  Future<int> copyCategoryItemsToList({
+    required List<CategoryItem> items,
+    required String targetListId,
+    required String userId,
+    required String displayName,
+  }) =>
+      _customCategories.copyItemsToList(
+        items: items,
+        targetListId: targetListId,
+        userId: userId,
+        displayName: displayName,
+      );
 
   // ═══════════════════════════════════════════════════════════════════════════
   // Legacy Method Support

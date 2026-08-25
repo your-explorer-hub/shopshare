@@ -5,6 +5,8 @@ import 'package:sqflite/sqflite.dart';
 import '../models/shopping_item.dart';
 import '../models/user_profile.dart';
 import '../models/member.dart';
+import '../models/custom_category.dart';
+import '../models/category_item.dart';
 
 /// SQLite local database — extensible schema.
 /// To add a new table, increment [_dbVersion] and add a case in [_onUpgrade].
@@ -22,7 +24,8 @@ class AppDatabase {
   ///   5 → add categories column to shopping_items (multi-category, paid feature)
   ///   6 → add invitations table for email-invite flow
   ///   7 → add gender column to users table
-  static const int _dbVersion = 7;
+  ///   8 → add custom_categories and category_items tables
+  static const int _dbVersion = 8;
 
   Database? _db;
 
@@ -245,6 +248,47 @@ class AppDatabase {
       await db.execute(
         'ALTER TABLE users ADD COLUMN gender TEXT',
       );
+    }
+    if (oldVersion < 8) {
+      // v7 → v8: add custom_categories and category_items tables for template management.
+      await db.execute('''
+        CREATE TABLE IF NOT EXISTS custom_categories (
+          id           TEXT PRIMARY KEY,
+          user_id      TEXT NOT NULL,
+          name         TEXT NOT NULL,
+          emoji        TEXT NOT NULL,
+          color_hex    TEXT NOT NULL,
+          created_at   INTEGER NOT NULL,
+          updated_at   INTEGER,
+          item_count   INTEGER DEFAULT 0
+        )
+      ''');
+      await db.execute('''
+        CREATE INDEX IF NOT EXISTS idx_custom_categories_user
+        ON custom_categories(user_id)
+      ''');
+
+      await db.execute('''
+        CREATE TABLE IF NOT EXISTS category_items (
+          id           TEXT PRIMARY KEY,
+          category_id  TEXT NOT NULL,
+          user_id      TEXT NOT NULL,
+          name         TEXT NOT NULL,
+          notes        TEXT,
+          quantity     INTEGER,
+          unit         TEXT,
+          created_at   INTEGER NOT NULL,
+          FOREIGN KEY (category_id) REFERENCES custom_categories(id) ON DELETE CASCADE
+        )
+      ''');
+      await db.execute('''
+        CREATE INDEX IF NOT EXISTS idx_category_items_category
+        ON category_items(category_id)
+      ''');
+      await db.execute('''
+        CREATE INDEX IF NOT EXISTS idx_category_items_user
+        ON category_items(user_id)
+      ''');
     }
   }
 
@@ -486,6 +530,98 @@ class AppDatabase {
     await db.delete('members');
     await db.delete('settings');
     await db.delete('invitations');
+    await db.delete('category_items');
+    await db.delete('custom_categories');
+  }
+
+  // ─── Custom category operations ──────────────────────────────────────────
+
+  Future<void> upsertCustomCategory(CustomCategory category) async {
+    final db = await database;
+    await db.insert(
+      'custom_categories',
+      category.toLocalMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<List<CustomCategory>> getCustomCategoriesForUser(String userId) async {
+    final db = await database;
+    final rows = await db.query(
+      'custom_categories',
+      where: 'user_id = ?',
+      whereArgs: [userId],
+      orderBy: 'created_at DESC',
+    );
+    return rows.map(CustomCategory.fromMap).toList();
+  }
+
+  Future<CustomCategory?> getCustomCategory(String categoryId) async {
+    final db = await database;
+    final rows = await db.query(
+      'custom_categories',
+      where: 'id = ?',
+      whereArgs: [categoryId],
+    );
+    if (rows.isEmpty) return null;
+    return CustomCategory.fromMap(rows.first);
+  }
+
+  Future<void> deleteCustomCategory(String categoryId) async {
+    final db = await database;
+    // Cascade delete is handled by foreign key constraint
+    await db.delete('custom_categories', where: 'id = ?', whereArgs: [categoryId]);
+  }
+
+  Future<void> updateCustomCategoryItemCount(String categoryId, int count) async {
+    final db = await database;
+    await db.update(
+      'custom_categories',
+      {'item_count': count, 'updated_at': DateTime.now().millisecondsSinceEpoch},
+      where: 'id = ?',
+      whereArgs: [categoryId],
+    );
+  }
+
+  // ─── Category item operations ────────────────────────────────────────────
+
+  Future<void> upsertCategoryItem(CategoryItem item) async {
+    final db = await database;
+    await db.insert(
+      'category_items',
+      item.toLocalMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<List<CategoryItem>> getCategoryItems(String categoryId) async {
+    final db = await database;
+    final rows = await db.query(
+      'category_items',
+      where: 'category_id = ?',
+      whereArgs: [categoryId],
+      orderBy: 'created_at DESC',
+    );
+    return rows.map(CategoryItem.fromMap).toList();
+  }
+
+  Future<void> deleteCategoryItem(String itemId) async {
+    final db = await database;
+    await db.delete('category_items', where: 'id = ?', whereArgs: [itemId]);
+  }
+
+  Future<void> deleteAllCategoryItems(String categoryId) async {
+    final db = await database;
+    await db.delete('category_items', where: 'category_id = ?', whereArgs: [categoryId]);
+  }
+
+  Future<int> getCategoryItemCount(String categoryId) async {
+    final db = await database;
+    final result = await db.rawQuery(
+      'SELECT COUNT(*) as count FROM category_items WHERE category_id = ?',
+      [categoryId],
+    );
+    return Sqflite.firstIntValue(result) ?? 0;
   }
 
   Future<void> close() async {

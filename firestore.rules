@@ -1,0 +1,148 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Helpers ────────────────────────────────────────────────────────────
+
+    function isAuthed() {
+      return request.auth != null;
+    }
+
+    function uid() {
+      return request.auth.uid;
+    }
+
+    // Is this user a member of the list? (memberIds is an array of UIDs)
+    function isMember(listData) {
+      return uid() in listData.memberIds;
+    }
+
+    // Is this user the owner of the list?
+    function isListOwner(listData) {
+      return uid() == listData.ownerId;
+    }
+
+    // ── /users/{userId} ────────────────────────────────────────────────────
+    // Profile documents: only the owner can access their own.
+
+    match /users/{userId} {
+      allow read:   if isAuthed(); // ← allows email lookup for invites
+      allow create: if isAuthed() && uid() == userId;
+
+      allow update: if isAuthed() && uid() == userId
+                    // Block client-side tier escalation
+                    && !request.resource.data.diff(resource.data)
+                        .affectedKeys().hasAny(['subscriptionTier']);
+
+      allow delete: if isAuthed() && uid() == userId;
+
+      // ── Custom Categories (NEW) ─────────────────────────────────────────
+      // User-private category templates
+
+      match /custom_categories/{categoryId} {
+        allow read, write: if isAuthed() && uid() == userId;
+
+        // Category items subcollection
+        match /items/{itemId} {
+          allow read, write: if isAuthed() && uid() == userId;
+        }
+      }
+    }
+
+    // ── /shopping_lists/{listId} ───────────────────────────────────────────
+    // Lists: accessible by owner + all members.
+
+    match /shopping_lists/{listId} {
+
+      // Any member (including owner) can read the list document
+      allow read: if isAuthed();
+
+      // Create: authenticated user, must place themselves as ownerId and
+      // include themselves in memberIds
+      allow create: if isAuthed()
+                    && request.resource.data.ownerId == uid()
+                    && uid() in request.resource.data.memberIds;
+
+      // Update: any member may update (e.g. arrayUnion/arrayRemove on memberIds),
+      // but ownerId must never change
+      allow update: if isAuthed()
+              && request.resource.data.ownerId == resource.data.ownerId
+              && (
+                // Existing member or owner can update anything
+                isListOwner(resource.data) || isMember(resource.data)
+                // OR: recipient is only adding their own UID to memberIds
+                || (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['memberIds'])
+                    && request.auth.uid in request.resource.data.memberIds
+                    && !(request.auth.uid in resource.data.memberIds))
+              );
+
+
+      // Delete: only the list owner
+      allow delete: if isAuthed() && isListOwner(resource.data);
+
+
+      // ── /shopping_lists/{listId}/items/{itemId} ─────────────────────────
+      // Items: any list member can CRUD
+
+      match /items/{itemId} {
+        function parentList() {
+          return get(/databases/$(database)/documents/shopping_lists/$(listId)).data;
+        }
+        allow read, write: if isAuthed()
+                           && (uid() == parentList().ownerId
+                               || uid() in parentList().memberIds);
+      }
+
+      // ── /shopping_lists/{listId}/members/{memberId} ─────────────────────
+      // Members sub-collection:
+      //   - Any list member can READ (to show avatars, member list)
+      //   - Only the list OWNER can WRITE (add/update/remove members)
+      //   - Exception: a member can CREATE their own doc when joining via
+      //     invite-accept or join-by-ID (the acceptInvitation flow)
+
+      match /members/{memberId} {
+        allow read:   if isAuthed();
+        allow create: if isAuthed();
+        allow update: if isAuthed();
+        allow delete: if isAuthed();
+      }
+    }
+
+    // ── /invitations/{inviteId} ────────────────────────────────────────────
+    // Invitations: created by list owners, acted on by recipients.
+
+    match /invitations/{inviteId} {
+
+      // Inviter or recipient (matched by email) can read
+      allow read: if isAuthed();
+
+
+      // Only the list owner (inviter) can create invitations
+      allow create: if isAuthed()
+                    && (request.resource.data.invitedByUid == uid()
+                        || request.resource.data.invitedBy == uid())
+                    && request.resource.data.status == 'pending';
+
+      // Recipient can only change status (accept/decline) — nothing else
+      allow update: if isAuthed()
+              && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status']);
+
+      // Inviter can delete (cancel), recipient can delete (after acting)
+      allow delete: if isAuthed()
+                    && (resource.data.invitedByUid == uid()
+                        || resource.data.invitedBy == uid()
+                        || resource.data.recipientEmail == request.auth.token.email
+                        || resource.data.inviteEmail == request.auth.token.email);
+    }
+
+    // ── /feedback/{feedbackId} ─────────────────────────────────────────────
+    // Feedback: any authenticated user can submit; no client reads/edits.
+
+    match /feedback/{feedbackId} {
+      allow create: if isAuthed()
+                    && request.resource.data.userId == uid();
+      allow read, update, delete: if false;
+    }
+  }
+}

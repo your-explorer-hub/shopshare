@@ -32,6 +32,7 @@ class AppConstants {
   static const String routeSettings = '/settings';
   static const String routeInvite = '/invite';
   static const String routeJoin = '/join/:shortCode';
+  static const String routeManageCategories = '/manage-categories';
 
   // Invite / deep-link
   static const String inviteBaseUrl = 'https://shopshare-f0719.web.app/invite';

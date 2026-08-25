@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -106,6 +107,18 @@ class SettingsScreen extends StatelessWidget {
                 onTap: () => _showDefaultViewPicker(context, homeState),
               );
             },
+          ),
+          const SizedBox(height: 24),
+
+          // ── Categories ──
+          const _SectionHeader(label: 'CATEGORIES'),
+          _SettingsTile(
+            icon: Icons.category_rounded,
+            iconColor: AppTheme.accentTeal,
+            title: 'Manage Categories',
+            subtitle: 'Create and manage custom shopping categories',
+            trailing: const Icon(Icons.chevron_right_rounded, size: 18),
+            onTap: () => context.push(AppConstants.routeManageCategories),
           ),
           const SizedBox(height: 24),
 

@@ -12,6 +12,7 @@ import '../screens/profile_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/invite_screen.dart';
 import '../screens/join_via_link_screen.dart';
+import '../screens/manage_categories_screen.dart';
 import '../utils/constants.dart';
 
 /// Builds the application [GoRouter].
@@ -92,6 +93,10 @@ class AppRouter {
         GoRoute(
           path: AppConstants.routeInvite,
           builder: (_, __) => const InviteScreen(),
+        ),
+        GoRoute(
+          path: AppConstants.routeManageCategories,
+          builder: (_, __) => const ManageCategoriesScreen(),
         ),
         GoRoute(
           path: '/join/:shortCode',

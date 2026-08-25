@@ -13,6 +13,7 @@ import 'providers/notification_provider.dart';
 import 'providers/home_screen_provider.dart';
 import 'providers/invite_screen_provider.dart';
 import 'providers/add_item_screen_provider.dart';
+import 'providers/custom_categories_provider.dart';
 import 'app.dart';
 
 void main() async {
@@ -32,6 +33,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => ShoppingProvider()),
+        ChangeNotifierProvider(create: (_) => CustomCategoriesProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => NotificationProvider()),
         ChangeNotifierProvider(create: (_) => HomeScreenProvider()),

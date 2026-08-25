@@ -46,6 +46,12 @@ class ProfileMenuWidget extends StatelessWidget {
           color: AppTheme.accentTeal,
         ),
         _menuItem(
+          action: _MenuAction.manageCategories,
+          icon: Icons.category_rounded,
+          label: 'Manage Categories',
+          color: AppTheme.accentTeal,
+        ),
+        _menuItem(
           action: _MenuAction.settings,
           icon: Icons.settings_rounded,
           label: 'Settings',
@@ -122,6 +128,9 @@ class ProfileMenuWidget extends StatelessWidget {
       case _MenuAction.settings:
         context.push(AppConstants.routeSettings);
         break;
+      case _MenuAction.manageCategories:
+        context.push(AppConstants.routeManageCategories);
+        break;
       case _MenuAction.signOut:
         AppDialogs.confirmSignOut(context, auth);
         break;
@@ -130,7 +139,7 @@ class ProfileMenuWidget extends StatelessWidget {
 
 }
 
-enum _MenuAction { profile, invite, settings, signOut }
+enum _MenuAction { profile, invite, manageCategories, settings, signOut }
 
 class _UserHeader extends StatelessWidget {
   final String displayName;

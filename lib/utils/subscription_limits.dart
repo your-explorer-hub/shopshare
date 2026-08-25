@@ -68,6 +68,30 @@ class SubscriptionLimits {
   static bool supportsMultiCategory(SubscriptionTier tier) =>
       maxCategoriesPerItem(tier) > 1;
 
+  /// Maximum number of custom categories a user can create.
+  static int maxCustomCategories(SubscriptionTier tier) {
+    switch (tier) {
+      case SubscriptionTier.family:
+        return 20;
+      case SubscriptionTier.group:
+        return 50;
+      case SubscriptionTier.free:
+        return 10;
+    }
+  }
+
+  /// Maximum number of items per custom category.
+  static int maxItemsPerCategory(SubscriptionTier tier) {
+    switch (tier) {
+      case SubscriptionTier.family:
+        return 100;
+      case SubscriptionTier.group:
+        return 200;
+      case SubscriptionTier.free:
+        return 50;
+    }
+  }
+
   static String tierDisplayName(SubscriptionTier tier) {
     switch (tier) {
       case SubscriptionTier.family:
